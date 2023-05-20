@@ -22,6 +22,8 @@ class DatabaseSeeder extends Seeder
         // ]);
         $this->call([
             UserSeeder::class,
+            RoomtypeSeeder::class,
+            RoomSeeder::class,
         ]);
     }
 }

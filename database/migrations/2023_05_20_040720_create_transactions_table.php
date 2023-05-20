@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('transcode')->autoIncrement();
+            $table->string('transcode');
             $table->timestamp('transdate')->useCurrent();
             $table->ForeignId('custname')-> constrained('users')->cascadeOnUpdate()->cascadeOnDelete();
             $table->integer('totalroomprice');

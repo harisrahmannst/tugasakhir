@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class RoomSeeder extends Seeder
 {
@@ -19,13 +21,23 @@ class RoomSeeder extends Seeder
             'area' => 'L1-001',
             'price' => '200000',
             'facility' => 'AC/NonSmoking',
+            'roomtypeid' => '1'
         ]);
 
         DB::table('rooms')->insert([
-            'roomname' => 'Room-101',
+            'roomname' => 'Room-201',
             'area' => 'L2-001',
             'price' => '100000',
             'facility' => 'NonAC/Smoking',
+            'roomtypeid' => '2'
+        ]);
+
+        DB::table('rooms')->insert([
+            'roomname' => 'Room-202',
+            'area' => 'L2-002',
+            'price' => '100000',
+            'facility' => 'NonAC/Smoking',
+            'roomtypeid' => '2'
         ]);
     }
 }

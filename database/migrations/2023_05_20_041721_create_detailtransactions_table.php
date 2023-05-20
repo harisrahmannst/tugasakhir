@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('detailtransactions', function (Blueprint $table) {
             $table->id();
+            $table->ForeignId('transid')-> constrained('transactions')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->ForeignId('roomid')-> constrained('rooms')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->integer('days');
+            $table->integer('subtotalroom');
+            $table->integer('extracharge');
             $table->timestamps();
         });
     }

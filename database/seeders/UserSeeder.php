@@ -28,7 +28,6 @@ class UserSeeder extends Seeder
             'email' => 'customer@gmail.com',
             'password' => Hash::make('cs123'),
             'role' => 'customer',
-            'is_admin' => false
         ]);
     }
 }

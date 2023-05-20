@@ -15,4 +15,14 @@ class detailtransaction extends Model
         'totalextracharge',
         'finaltotal'
     ];
+
+    public function transactions()
+    {
+        return $this->belongsTo(transaction::class);
+    }
+
+    public function rooms()
+    {
+        return $this->belongsToMany(room::class)->withPivot('subtotalroom');
+    }
 }

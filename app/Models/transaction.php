@@ -10,9 +10,13 @@ class transaction extends Model
     use HasFactory;
 
     protected $fillable = [
-        'custname',
         'totalroomprice',
         'totalextracharge',
         'finaltotal'
     ];
+
+    public function Users()
+    {
+        return $this->belongsTo(Users::class);
+    }
 }
