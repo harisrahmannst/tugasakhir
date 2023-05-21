@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RoomController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,16 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+// Route::get('/room', [\App\Http\Controllers\RoomController::class, 'index'])->name('indexroom');
+
+Route::resource('/rooms', RoomController::class);
+
+Route::get('/room/createroom', function () {
+    return view('rooms.addroom');
+})->middleware(['auth', 'verified'])->name('createroom');
+
+Route::post('/room/createroom', [\App\Http\Controllers\RoomController::class, 'store'])->name('store');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

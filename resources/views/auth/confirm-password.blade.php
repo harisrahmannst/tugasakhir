@@ -1,27 +1,36 @@
+@extends('layouts.boostrap5')
 <x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
-        {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
-    </div>
+    <x-auth-card>
+        <x-slot name="logo">
+            <a href="/">
+                <x-application-logo width="82" />
+            </a>
+        </x-slot>
 
-    <form method="POST" action="{{ route('password.confirm') }}">
-        @csrf
+        <div class="card-body">
+            <div class="mb-4 text-sm text-muted">
+                {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
+            </div>
 
-        <!-- Password -->
-        <div>
-            <x-input-label for="password" :value="__('Password')" />
+            <!-- Validation Errors -->
+            <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
+            <form method="POST" action="{{ route('password.confirm') }}">
+                @csrf
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                <!-- Password -->
+                <div class="mb-3">
+                    <x-label for="password" :value="__('Password')" />
+
+                    <x-input id="password" type="password" name="password" required autocomplete="current-password" />
+                </div>
+
+                <div class="d-flex justify-content-end mt-4">
+                    <x-button class="ms-4">
+                        {{ __('Confirm') }}
+                    </x-button>
+                </div>
+            </form>
         </div>
-
-        <div class="flex justify-end mt-4">
-            <x-primary-button>
-                {{ __('Confirm') }}
-            </x-primary-button>
-        </div>
-    </form>
+    </x-auth-card>
 </x-guest-layout>

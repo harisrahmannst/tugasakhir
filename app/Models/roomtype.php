@@ -12,4 +12,9 @@ class roomtype extends Model
     protected $fillable = [
         'roomtype'
     ];
+
+    public function rooms()
+    {
+        return $this->hasOne(room::class);
+    }
 }

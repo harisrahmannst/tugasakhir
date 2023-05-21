@@ -19,6 +19,6 @@ class room extends Model
 
     public function roomtypes()
     {
-        return $this->belongsTo(roomtype::class);
-    }   
+        return $this->belongsTo(roomType::class, 'roomtypeid');
+    } 
 }
