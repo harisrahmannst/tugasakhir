@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\RoomtypeController;
+use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +18,7 @@ use App\Http\Controllers\RoomController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::get('/dashboard', function () {
@@ -26,6 +28,8 @@ Route::get('/dashboard', function () {
 // Route::get('/room', [\App\Http\Controllers\RoomController::class, 'index'])->name('indexroom');
 
 Route::resource('/rooms', RoomController::class);
+Route::resource('/roomstype', RoomtypeController::class);
+Route::resource('/reservasi', TransactionController::class);
 
 Route::get('/room/createroom', function () {
     return view('rooms.addroom');

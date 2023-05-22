@@ -21,6 +21,10 @@
                     {{ __('Rooms') }}
                 </x-nav-link>
 
+                <x-nav-link href="{{ route('roomstype.index') }}" :active="request()->routeIs('roomstype.*') ? 'active' : ''">
+                    {{ __('Rooms Type') }}
+                </x-nav-link>
+
             </ul>
 
             <!-- Right Side Of Navbar -->

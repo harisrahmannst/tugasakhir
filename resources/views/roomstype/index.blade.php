@@ -2,7 +2,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="h4 font-weight-bold">
-            {{ __('List Rooms') }}
+            {{ __('List Rooms Type') }}
         </h2>
     </x-slot>
     <div>
@@ -21,8 +21,8 @@
             </div>
         @endif
         <div class="col-md-4 text-right">
-            <form action="{{ route('rooms.create') }}" method="get">
-                <button type="submit" class="btn btn-primary">Add New Room</button>
+            <form action="{{ route('roomstype.create') }}" method="get">
+                <button type="submit" class="btn btn-primary">Add New Roomtype</button>
             </form>
         </div>
         <div class="container">
@@ -33,28 +33,20 @@
                             <tr>
                                 <th class="text-center">No</th>
                                 <th class="text-center">Room Type</th>
-                                <th class="text-center">Room Name</th>
-                                <th class="text-center">Area</th>
-                                <th class="text-center">Price</th>
-                                <th class="text-center">Facility</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($rooms as $key => $room)
+                            @foreach ($roomtypes as $key => $roomtype)
                                 <tr>
                                     <td class="text-center">{{ $key + 1 }}</td>
-                                    <td align="center">{{ $room->roomtypes ? $room->roomtypes->roomtype : '-' }}</td>
-                                    <td align="center">{{ $room->roomname }}</td>
-                                    <td align="center">{{ $room->area }}</td>
-                                    <td align="center">{{ $room->price }}</td>
-                                    <td align="center">{{ $room->facility }}</td>
+                                    <td align="center">{{ $roomtype->roomtype }}</td>
                                     <td>
-                                        <form action="{{ route('rooms.destroy', $room->id) }}" method="POST">
+                                        <form action="{{ route('roomstype.destroy', $roomtype->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger">Delete</button>
                                         </form>
-                                        <form action="{{ route('rooms.edit', $room->id) }}" method="GET">
+                                        <form action="{{ route('roomstype.edit', $roomtype->id) }}" method="GET">
                                             <button type="submit" class="btn btn-primary">Edit</button>
                                         </form>
                                     </td>

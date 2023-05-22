@@ -21,9 +21,11 @@
             <div class="col-md-12">
                 <label for="roomtypeid" class="form-label">Room Type:</label>
                 <select class="form-select" id="roomtypeid" name="roomtypeid">
-                    <option value="1">Twin</option>
-                    <option value="2">Superior</option>
-                    <option value="3">Standard</option>
+                    @foreach ($roomtypes as $roomtype)
+                        <option value="{{ $roomtype->id }}">
+                            {{ $roomtype->roomtype }}
+                        </option>
+                    @endforeach
                 </select>
             </div>
 

@@ -32,7 +32,8 @@ class RoomController extends Controller
     public function create()
     {
         //
-        return view('rooms.addroom');
+        $roomtypes = roomtype::all();
+        return view('rooms.addroom', compact('roomtypes'));
     }
 
     /**

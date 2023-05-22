@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('roomtypes', function (Blueprint $table) {
             $table->id();
-            $table->enum("roomtype", ["Twin", "Superior", "Standard"]);
+            $table->string('roomtype');
             $table->timestamps();
         });
     }
